@@ -1,0 +1,102 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+main .left,
+main .right {
+  height: 100%;
+  flex-basis: 50%;
+  border-radius: 0.7rem;
+}
+
+main .left {
+  background-color: #000000;
+  position: relative;
+}
+
+.left .code,
+.code pre,
+.code pre code {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  border-radius: 0.7rem;
+  background-color: #0c0c0c;
+}
+
+main .left .review {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: rgb(219, 219, 255);
+  color: #000000;
+  padding: 0.5rem 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.7rem;
+}
+
+
+main .right {
+  background-color: #343434;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  overflow: auto;
+}
+.highlight-bug {
+  background-color: rgba(255, 0, 0, 0.2);
+  border-left: 3px solid red;
+}
+
+.highlight-suggestion {
+  background-color: rgba(255, 255, 0, 0.2);
+  border-left: 3px solid gold;
+}
+
+.highlight-enhancement {
+  background-color: rgba(0, 255, 0, 0.15);
+  border-left: 3px solid green;
+}
+
+/* Tooltip on hover */
+.highlight-bug[title]:hover,
+.highlight-suggestion[title]:hover,
+.highlight-enhancement[title]:hover {
+  position: relative;
+  cursor: pointer;
+}
+
+.highlight-bug[title]:hover::after,
+.highlight-suggestion[title]:hover::after,
+.highlight-enhancement[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background: #333;
+  color: white;
+  padding: 3px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin-left: 8px;
+  z-index: 100;
+  font-size: 12px;
+}
